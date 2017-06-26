@@ -6,6 +6,7 @@
       <div class="search-btn ion-ios-search-strong" @click="toggleInput(true)"></div>
     </div>
     <div class="input-ct" v-else transition="input-fade">
+      <div class="ion-ios-search-strong input-pre-logo" v-if="bInputVisible"></div>
       <input type="text" class="input" placeholder="Search" v-model="query"  ref="search" @keyup.enter="search" autofocus>
       <button class="clear-cross" v-show="showCross" @click="clearQuery">×</button>
       <!--<button class="cancel" @click="toggleInput(false)">Cancel</button>-->
@@ -49,6 +50,13 @@
 </script>
 
 <style scoped>
+  .input-pre-logo {
+    position: absolute;
+    font-size: 27px;
+    color: #ccc;
+    top: 10px;
+    left: 10px;
+  }
   .clear-cross {
     display:block;
     position: absolute;
@@ -72,6 +80,7 @@
     height: 35px;
     position: relative;
     padding: 5px;
+    border-bottom: 1px solid #ccc;
   }
   .logo {
     background: url(https://m.soundcloud.com/assets/images/hdpi/logo-881c7ae2.png) center no-repeat;
@@ -84,7 +93,7 @@
     width:45px;
     height:100%;
     color: #333;
-    font-size: 30px;
+    font-size: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
