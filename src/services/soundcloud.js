@@ -7,5 +7,13 @@ export default {
 
   search (searchStr) {
     return window.SC.get('/tracks', {q: searchStr})
+  },
+
+  widget (trackUrl) {
+    return window.SC.oEmbed(trackUrl, { auto_play: true })
+  },
+
+  stream (trackId) {
+    return window.SC.stream('/tracks/293')
   }
 }

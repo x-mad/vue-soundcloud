@@ -24,7 +24,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/track/',
+      path: '/track/:track',
       name: 'track',
       component: Track
     }

@@ -21,8 +21,8 @@
 
     methods: {
       startSearch(query) {
-        this.$router.push({name: 'tracklist', params: {query: query},})
-      },
+        this.$router.push({name: 'tracklist', params: {query: query}})
+      }
     }
 
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="track-list">
-    <div class="track-list-item" v-for="track in tracks">
+    <div class="track-list-item" v-for="track in tracks" @click="openTrack(track)">
       <img class="logo" :src="track.artwork_url"/>
       <div class="track">
         <div class="duration">{{getDuration(track.duration)}}</div>
@@ -8,7 +8,6 @@
         <div class="title">{{track.title}}</div>
         <div class="playback-count ion-play "><span>{{track.playback_count}}</span></div>
       </div>
-
     </div>
   </div>
 </template>
@@ -33,6 +32,10 @@
         let seconds = ((millis % 60000) / 1000).toFixed(0)
 
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds
+      },
+
+      openTrack (track) {
+        this.$router.push({name: 'track', params: {track: track}})
       }
     },
 
